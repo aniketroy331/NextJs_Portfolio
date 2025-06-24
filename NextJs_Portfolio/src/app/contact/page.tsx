@@ -232,7 +232,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Type your message here..."
-                    rows="50"
+                    rows={50}
                     className={errors.message ? 'error' : ''}
                   ></textarea>
                   {errors.message && <span className="error-message">{errors.message}</span>}
