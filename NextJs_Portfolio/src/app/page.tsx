@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <marquee className={styles.notes}>Coming soon: A curated collection of my personal study notes to support and inspire fellow learners</marquee>
       <>
       <section className={styles.homeSection}>
         <div className={styles.container}>
