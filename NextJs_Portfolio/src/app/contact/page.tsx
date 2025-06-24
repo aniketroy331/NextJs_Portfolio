@@ -307,8 +307,8 @@ export default function Contact() {
         }
         .container {
           max-width: 1200px;
-          margin: 50px auto;
-          padding: 20px;
+          // margin: 50px auto;
+          // padding: 20px;
           perspective: 2000px;
           background-color: #0f051e;
         }
