@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Header from "../header/page";
 import Footer from "../footer/page";
+import Image from 'next/image';
 
 interface Project {
   id: number;
@@ -201,7 +202,7 @@ export default function ProjectsPage() {
                 data-type={project.type}
               >
                 <div className="project-image">
-                  <img src={project.image} alt={project.title} />
+                  <Image src={project.image} alt={project.title} />
                 </div>
                 <div className="project-info">
                   <h3>{project.title}</h3>
