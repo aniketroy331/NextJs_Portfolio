@@ -1,6 +1,6 @@
 "use client"; 
 
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState} from 'react';
 import Header from "../header/page";
 import Footer from "../footer/page";
 import Image from 'next/image';
@@ -53,7 +53,7 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
