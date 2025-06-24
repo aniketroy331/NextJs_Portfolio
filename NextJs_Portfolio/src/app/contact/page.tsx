@@ -280,7 +280,6 @@ export default function Contact() {
           box-sizing: border-box;
           font-family: 'Poppins', sans-serif;
           text-decoration: none;
-          background-color: #0f051e;
         }
 
         :root {
@@ -311,6 +310,7 @@ export default function Contact() {
           margin: 50px auto;
           padding: 20px;
           perspective: 2000px;
+          background-color: #0f051e;
         }
         .contact-container {
           position: relative;
