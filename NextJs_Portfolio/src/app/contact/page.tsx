@@ -12,7 +12,6 @@ interface FormData {
   phone: string;
   message: string;
 }
-
 interface FormErrors {
   firstName?: string;
   lastName?: string;
