@@ -1,7 +1,6 @@
 "use client"; 
 
-import Head from 'next/head';
-import { useState} from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import Header from "../header/page";
 import Footer from "../footer/page";
 import Image from 'next/image';
@@ -111,13 +110,7 @@ export default function Contact() {
   
   return (
     <>
-      <Head>
-        <title>Contact Me</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-      </Head>
-
       <Header />
-      
       <div className="container">
         <div className="contact-container">
           <div className="contact-panels">
