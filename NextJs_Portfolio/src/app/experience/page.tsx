@@ -239,8 +239,8 @@ export default function ExperiencePage() {
                   className={styles.nextCert}
                   onClick={handleNext}
                   disabled={
-                    currentCompany &&
-                    currentCertIndex === certificates[currentCompany].length - 1
+                      currentCompany !== '' &&
+                      currentCertIndex === certificates[currentCompany].length - 1
                   }
                 >
                   Next ❯
