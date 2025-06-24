@@ -1,7 +1,7 @@
 "use client"; 
 
 import Head from 'next/head';
-import { useEffect,useState } from 'react';
+import { useEffect} from 'react';
 import Header from "../header/page";
 import Footer from "../footer/page";
 import { FaFacebookF, FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaMapMarkerAlt,  FaSpinner, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
@@ -141,7 +141,7 @@ export default function Contact() {
             {/* Enhanced Right Side Form */}
             <div className="right-side">
               <h2>Contact Me</h2>
-              <p>Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.</p>
+              <p>Have a question or want to work together? Fill out the form below and I&apos;ll get back to you as soon as possible.</p>
               
               <form onSubmit={handleSubmit} id="contactForm" noValidate>
                 <div className="form-row">
