@@ -6,6 +6,20 @@ import Header from "../header/page";
 import Footer from "../footer/page";
 import Image from 'next/image';
 import { FaFacebookF, FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaMapMarkerAlt,  FaSpinner, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  message?: string;
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -27,7 +41,7 @@ export default function Contact() {
 };
 
   const validate = () => {
-    const newErrors = {};
+    const newErrors: FormErrors = {};
     if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
     if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
     if (!formData.email.trim()) {
@@ -40,12 +54,11 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
-
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch("https://sheetdb.io/api/v1/vxkxt4adjy8tl", {
         method: "POST",
@@ -64,7 +77,8 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        document.getElementById('successPopup').style.display = 'block';
+        const popup = document.getElementById('successPopup');
+        if (popup) popup.style.display = 'block';
         setFormData({
           firstName: '',
           lastName: '',
@@ -73,24 +87,28 @@ export default function Contact() {
           message: ''
         });
       } else {
-        document.getElementById('faliurePopup').style.display = 'block';
+        const popup = document.getElementById('faliurePopup');
+        if (popup) popup.style.display = 'block';
       }
     } catch (error) {
       console.error('Error:', error);
-      document.getElementById('faliurePopup').style.display = 'block';
+      const popup = document.getElementById('faliurePopup');
+      if (popup) popup.style.display = 'block';
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const closePopupsuccess = () => {
-    document.getElementById('successPopup').style.display = 'none';
-  };
-  
-  const closePopupfaliure = () => {
-    document.getElementById('faliurePopup').style.display = 'none';
+    const popup = document.getElementById('successPopup');
+    if (popup) popup.style.display = 'none';
   };
 
+  const closePopupfaliure = () => {
+    const popup = document.getElementById('faliurePopup');
+    if (popup) popup.style.display = 'none';
+  };
+  
   return (
     <>
       <Head>
