@@ -17,9 +17,9 @@ export default function Home() {
               <h1>I am <span>Aniket Roy</span></h1>
               <h1>Full Stack Web Developer</h1>
               <p>
-                  Hi, I’m a passionate full-stack web developer currently gaining real-world experience through an internship. I love turning ideas into interactive, user-friendly web applications using technologies like HTML, CSS, JavaScript, React.js, Next.js, Node.js, Express.js, and MongoDB. Every project I build reflects my drive to create smooth digital experiences that balance performance, design, and usability. I'm always exploring new ways to grow and improve in this exciting field.
+                  Hi, I&apos;m a passionate full-stack web developer currently gaining real-world experience through an internship. I love turning ideas into interactive, user-friendly web applications using technologies like HTML, CSS, JavaScript, React.js, Next.js, Node.js, Express.js, and MongoDB. Every project I build reflects my drive to create smooth digital experiences that balance performance, design, and usability. I&apos;m always exploring new ways to grow and improve in this exciting field.
               </p>
-              <p>Take a look at my full portfolio to see the projects I’ve brought to life!</p>
+              <p>Take a look at my full portfolio to see the projects I&apos;ve brought to life!</p>
               <div className={styles.socialLinks}>
                 <a href="https://www.facebook.com/?ref=homescreenpwa" target="_blank" rel="noopener noreferrer">
                   <FaFacebookF />
