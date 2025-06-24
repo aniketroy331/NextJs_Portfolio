@@ -289,7 +289,9 @@ export default function Contact() {
           --secondary-color: #0f051e;
           --text-color: #f0f0f0;
         }
-
+        html{
+          background-color: #0f051e;
+        }
         body {
           background: var(--bg);
           color: var(--text-color);
