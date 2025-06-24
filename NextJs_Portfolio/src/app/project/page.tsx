@@ -16,7 +16,7 @@ interface Project {
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<string>('');
-  const [projects, setProjects] = useState<Project[]>([
+  const [projects] = useState<Project[]>([
     {
       id: 1,
       type: "frontend",
