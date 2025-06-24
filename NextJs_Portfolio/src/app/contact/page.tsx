@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useEffect} from 'react';
 import Header from "../header/page";
 import Footer from "../footer/page";
+import Image from 'next/image';
 import { FaFacebookF, FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaMapMarkerAlt,  FaSpinner, FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 
 export default function Contact() {
@@ -103,7 +104,7 @@ export default function Contact() {
         <div className="contact-container">
           <div className="contact-panels">
             <div className="left-side">
-              <img src="/images/formal_profile.jpg" alt="Profile Picture" />
+              <Image src="/images/formal_profile.jpg" alt="Profile Picture"/>
               <h2>Get in Touch</h2>
               <p>Feel free to reach out to me for any questions or opportunities.</p>
               
