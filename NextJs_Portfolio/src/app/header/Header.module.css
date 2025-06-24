@@ -1,0 +1,175 @@
+.navbar {
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: #0f051e;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.element {
+  position: fixed;
+  padding: 17px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.element::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #4200fc 25%, #ff1493 50%, #4200fc 75%, #ff1493 100%);
+  background-size: 200% 100%;
+  animation: moveBorder 5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes moveBorder {
+  0% { background-position: 0% 100%; }
+  100% { background-position: 100% 100%; }
+}
+
+.navbarBrand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to top right, #4200fc, #f901fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbarBrand a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbarMenu, .lt {
+  display: flex;
+  list-style: none;
+}
+
+.navbarItem {
+  margin-left: 1.5rem;
+  position: relative;
+}
+
+.navbarLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbarLink.active {
+  background: linear-gradient(to top right, #4200fc, #f901fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbarLink:hover {
+  background: linear-gradient(to top right, #4200fc, #f901fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #4200fc, #f901fc);
+  transition: width 0.3s ease;
+}
+
+.underline.visible {
+  width: 100%;
+}
+
+.navbarToggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbarMenu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0f051e;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+
+  .navbarMenu.active {
+    display: flex;
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+  }
+
+  .navbarItem {
+    margin: 1rem 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-left: 0;
+  }
+
+  .navbarMenu.active .navbarItem {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+  }
+
+  .navbarToggle {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+
+  .navbarToggle.active {
+    transform: rotate(180deg);
+  }
+
+  .navbarToggle.active .bar:nth-child(1) {
+    transform: translateY(15px) rotate(45deg);
+  }
+
+  .navbarToggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbarToggle.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}

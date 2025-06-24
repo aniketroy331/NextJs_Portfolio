@@ -1,0 +1,348 @@
+/* General Styles */
+.hero {
+  min-height: 100vh;
+  background: #0f051e;
+  color: #f0f0f0;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  min-height: 80vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  gap: 2rem;
+}
+
+/* Left Content Section */
+.left {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #0f051e, #0f051e);
+  animation: slideInLeft 1s ease-out;
+}
+
+/* Right Image Section */
+.right {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideInRight 1s ease-out;
+}
+
+.profileImage {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid #4200fc;
+  box-shadow: 0 5px 20px #840087;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.profileImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 7px 25px #f901fc;
+}
+
+/* Text Styles */
+.heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+  color: white;
+  background: linear-gradient(to right, #4200fc, #f901fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.8;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+/* Word Animation */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+/* Button Styles */
+.button {
+  padding: 2rem;
+  text-align: center;
+}
+
+.btn {
+  padding: 15px 35px;
+  background: linear-gradient(to left, #4200fc, #f901fc);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(252, 0, 255, 0.4);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .left, .right {
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  .left {
+    align-items: center;
+    text-align: center;
+  }
+
+  .profileImage {
+    max-width: 300px;
+  }
+  
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .text {
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill {
+    align-items: flex-start;
+    margin: 20px;
+  }
+
+  .progressBar {
+    width: 100%;
+  }
+}
+
+.skillSection {
+  background: #0f051e;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.skillsContainer {
+  background: #0f051e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 20px 0;
+}
+
+.skillSection h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(to left, #4200fc, #f901fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.skillName {
+  width: 100%;
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.progressBar {
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 18px;
+  width: 100%;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 10px;
+  width: 0;
+  position: relative;
+  transition: width 2s ease-in-out;
+}
+
+.html, .css, .js, .python,.react,.next, .node, .selenium, .mongo {
+  background-image: linear-gradient(135.9deg, rgba(109,25,252,1) 16.4%, rgba(125,31,165,1) 56.1%);
+}
+
+/* Animation keyframes */
+@keyframes progressAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 96%;
+  }
+}
+
+@keyframes progressAnimationpython {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 95%;
+  }
+}
+@keyframes progressAnimationreact {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 70%;
+  }
+}
+@keyframes progressAnimationnext {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes progressAnimationnode {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes progressAnimationselenium {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes progressAnimationmongo {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 95%;
+  }
+}
+
+.html, .css, .js {
+  animation: progressAnimation 7s forwards;
+}
+
+.python {
+  animation: progressAnimationpython 7s forwards;
+}
+.react {
+  animation: progressAnimationreact 7s forwards;
+}
+.next {
+  animation: progressAnimationnext 7s forwards;
+}
+.node {
+  animation: progressAnimationnode 7s forwards;
+}
+
+.selenium {
+  animation: progressAnimationselenium 7s forwards;
+}
+
+.mongo {
+  animation: progressAnimationmongo 7s forwards;
+}
+
+@media screen and (max-width:768px) {
+.skillSection h1 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(to left, #4200fc, #f901fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skillsGrid {
+  display: block;
+}
+}
