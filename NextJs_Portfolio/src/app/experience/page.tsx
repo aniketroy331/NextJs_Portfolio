@@ -15,22 +15,23 @@ interface CertificatesData {
   [key: string]: Certificate[];
 }
 
+// ✅ Moved outside the component to prevent re-creation & eliminate dependency warnings
+const certificates: CertificatesData = {
+  "Vraio Software Solution Pvt. Ltd.": [
+    { url: "/images/internship/kpsc.jpg", type: "pdf" },
+    { url: "/images/internship/internship.pdf", type: "pdf" }
+  ],
+  "abigengine": [
+    { url: "/images/internship/abigengineproject.jpg", type: "pdf" },
+    { url: "/images/internship/internship.pdf", type: "pdf" }
+  ],
+};
+
 export default function ExperiencePage() {
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentCertIndex, setCurrentCertIndex] = useState(0);
   const [currentCompany, setCurrentCompany] = useState('');
-
-  const certificates: CertificatesData = {
-    "Vraio Software Solution Pvt. Ltd.": [
-      { url:"/images/internship/kpsc.jpg", type: "pdf" },
-      { url: "/images/internship/internship.pdf", type: "pdf" }
-    ],
-    "abigengine": [
-      { url:"/images/internship/abigengineproject.jpg", type: "pdf" },
-      { url: "/images/internship/internship.pdf", type: "pdf" }
-    ],
-  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -75,18 +76,17 @@ export default function ExperiencePage() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (isModalOpen) {
-        switch (e.key) {
-          case "ArrowLeft":
-            if (currentCertIndex > 0) handlePrev();
-            break;
-          case "ArrowRight":
-            if (currentCompany && currentCertIndex < certificates[currentCompany].length - 1) handleNext();
-            break;
-          case "Escape":
-            closeModal();
-            break;
-        }
+      if (!isModalOpen) return;
+      switch (e.key) {
+        case "ArrowLeft":
+          if (currentCertIndex > 0) handlePrev();
+          break;
+        case "ArrowRight":
+          if (currentCompany && currentCertIndex < certificates[currentCompany].length - 1) handleNext();
+          break;
+        case "Escape":
+          closeModal();
+          break;
       }
     };
 
@@ -103,7 +103,7 @@ export default function ExperiencePage() {
       <section className={styles.workexp}>
         <h1 className={styles.headtext}>Work Experience</h1>
 
-        {/* Experience Card 1 */}
+        {/* Experience Card: Vraio */}
         <div className={styles.experienceContainer}>
           <div className={`${styles.experienceCard} ${isCardVisible ? styles.visible : ''}`}>
             <div className={styles.cardHeader}>
@@ -115,9 +115,9 @@ export default function ExperiencePage() {
                   <span>15th August 2024 - 8th November 2024</span>
                 </div>
               </div>
-              <Image 
-                src="/images/internship/vraio_logo.png" 
-                alt="Company Logo" 
+              <Image
+                src="/images/internship/vraio_logo.png"
+                alt="Company Logo"
                 className={styles.companyLogo}
                 width={70}
                 height={70}
@@ -140,7 +140,7 @@ export default function ExperiencePage() {
                 <i className="fas fa-map-marker-alt"></i>
                 <span>Bangalore World Trade Center, Malleshwaram, Bengaluru-560055, CA (Remote)</span>
               </div>
-              <button 
+              <button
                 className={styles.viewMore}
                 onClick={() => handleViewMore("Vraio Software Solution Pvt. Ltd.")}
               >
@@ -150,7 +150,7 @@ export default function ExperiencePage() {
           </div>
         </div>
 
-        {/* Experience Card 2 */}
+        {/* Experience Card: Abigengine */}
         <div className={styles.experienceContainer}>
           <div className={`${styles.experienceCard} ${isCardVisible ? styles.visible : ''}`}>
             <div className={styles.cardHeader}>
@@ -162,9 +162,9 @@ export default function ExperiencePage() {
                   <span>3rd September 2024 - 7th November 2024</span>
                 </div>
               </div>
-              <Image 
-                src="/images/internship/abigengine.jpg" 
-                alt="Company Logo" 
+              <Image
+                src="/images/internship/abigengine.jpg"
+                alt="Company Logo"
                 className={styles.companyLogo}
                 width={70}
                 height={70}
@@ -172,7 +172,7 @@ export default function ExperiencePage() {
             </div>
 
             <p className={styles.jobDescription}>
-              Description: This project involves the full stack web development of a dynamic and user-friendly vehicle spare parts website. The platform allows users to browse, search, and purchase spare parts for various vehicle models. The front end is built using HTML, CSS, JavaScript to deliver a responsive and intuitive interface. The back end is powered by Node.js and Express.js, with MongoDB handling data storage for products, users, and orders. Key features include user authentication, product filtering, a shopping cart system, and order management, ensuring a seamless eCommerce experience.
+              Description: This project involves full stack web development of a user-friendly vehicle spare parts site. Users can browse, search, and purchase spare parts for various models. The front end uses HTML, CSS, JS, and the back end is Node.js, Express.js, MongoDB. Features: auth, filtering, cart, order management.
             </p>
 
             <div className={styles.skills}>
@@ -191,7 +191,7 @@ export default function ExperiencePage() {
                 <i className="fas fa-map-marker-alt"></i>
                 <span>Near Highway Flyover, Krishnagar, West Bengal, India</span>
               </div>
-              <button 
+              <button
                 className={styles.viewMore}
                 onClick={() => handleViewMore("abigengine")}
               >
@@ -213,19 +213,21 @@ export default function ExperiencePage() {
                     src={currentCertificate.url}
                     alt="Certificate"
                     className={styles.certificateImage}
-                    fill
-                    style={{ objectFit: 'contain' }}
+                    width={800}
+                    height={600}
+                    style={{ objectFit: 'contain', maxWidth: '100%', maxHeight: '70vh' }}
                   />
                 ) : (
                   <iframe
                     id="certificatePdf"
                     src={currentCertificate?.url}
                     className={styles.certificatePdf}
+                    style={{ width: '100%', height: '70vh', border: 'none' }}
                   />
                 )}
               </div>
               <div className={styles.modalControls}>
-                <button 
+                <button
                   className={styles.prevCert}
                   onClick={handlePrev}
                   disabled={currentCertIndex === 0}
@@ -233,10 +235,13 @@ export default function ExperiencePage() {
                   ❮ Previous
                 </button>
                 <span className={styles.certCounter}>{counterText}</span>
-                <button 
+                <button
                   className={styles.nextCert}
                   onClick={handleNext}
-                  disabled={currentCompany && currentCertIndex === certificates[currentCompany].length - 1}
+                  disabled={
+                    currentCompany &&
+                    currentCertIndex === certificates[currentCompany].length - 1
+                  }
                 >
                   Next ❯
                 </button>
