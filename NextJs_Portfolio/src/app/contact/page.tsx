@@ -307,7 +307,7 @@ export default function Contact() {
         }
         .container {
           max-width: 1200px;
-          // margin: 50px auto;
+          margin: 50px auto;
           // padding: 20px;
           perspective: 2000px;
           background-color: #0f051e;
@@ -326,7 +326,7 @@ export default function Contact() {
           transform: translateY(-50%);
           width: 0px;
           height: 100%;
-          background: #281F52;
+          background-color: #0f051e;
           z-index: 10;
         }
 
