@@ -221,30 +221,3 @@
     width: 70%;
   }
 }
-.sliding {
-  position: relative;
-  width: 100%;
-  margin-top:2rem;
-  height: 7px;
-  background-color: yellow;
-  color: cyan;
-  overflow: hidden;
-}
-
-.slidingline {
-  position: absolute;
-  white-space: nowrap;
-  font-size: 2rem;
-/*   top: 50%; */
-  transform: translateY(-50%);
-  animation: slide-left 10s linear infinite;
-}
-
-@keyframes slide-left {
-  from {
-    left: 100%;
-  }
-  to {
-    left: -10%;
-  }
-}
