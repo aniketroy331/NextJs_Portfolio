@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-    <div className={styles.container}>
-      <div className={styles.line}>"Coming Soon: My Personal Class Notes – Well-Organized, Insightful, and Free to Explore!"</div>
+    <div className={styles.sliding}>
+      <div className={styles.slidingline}>"Coming Soon: My Personal Class Notes – Well-Organized, Insightful, and Free to Explore!"</div>
     </div>
       <>
       <section className={styles.homeSection}>
