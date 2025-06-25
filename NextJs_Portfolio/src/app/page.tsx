@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Header />
     <div className={styles.sliding}>
-      <div className={styles.slidingline}>"Coming Soon: My Personal Class Notes – Well-Organized, Insightful, and Free to Explore!"</div>
+      <div className={styles.slidingline}>Coming Soon: My Personal Class Notes – Well-Organized, Insightful, and Free to Explore!</div>
     </div>
       <>
       <section className={styles.homeSection}>
